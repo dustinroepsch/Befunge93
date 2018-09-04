@@ -10,7 +10,9 @@
 
 class FungeCoordinate {
 public:
-    FungeCoordinate(int32_t x, int32_t y) : _x(x), _y(y) {}
+    FungeCoordinate(int32_t x, int32_t y);
+
+    FungeCoordinate() = delete;
 
     int32_t x();
 

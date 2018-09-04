@@ -8,16 +8,19 @@
 
 #include <cstdint>
 #include <istream>
+#include "FungeCoordinate.h"
 
 class FungeSpace {
 public:
     typedef uint8_t space_cell_t;
     const static int32_t SPACE_WIDTH = 80;
-    const static int32_t  SPACE_HEIGHT = 25;
+    const static int32_t SPACE_HEIGHT = 25;
 
     FungeSpace();
 
-    void LoadProgram(std::istream &PROGRAM);
+    void LoadProgram(std::istream &program);
+
+    space_cell_t &operator()(FungeCoordinate coordinate);
 
 private:
     space_cell_t space[SPACE_HEIGHT][SPACE_WIDTH];

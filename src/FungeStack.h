@@ -11,6 +11,7 @@
 class FungeStack {
 public:
     typedef int32_t stack_cell_t;
+
     FungeStack() = default;
 
     void Push(stack_cell_t v);
@@ -18,6 +19,7 @@ public:
     stack_cell_t Peek();
 
     stack_cell_t Pop();
+
 private:
     std::stack<stack_cell_t> stack;
 };

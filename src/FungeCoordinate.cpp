@@ -29,3 +29,8 @@ int32_t FungeCoordinate::wrap(int32_t val, int32_t max) {
     return val % max;
 }
 
+FungeCoordinate::FungeCoordinate(int32_t x, int32_t y) {
+    this->x(x);
+    this->y(y);
+}
+

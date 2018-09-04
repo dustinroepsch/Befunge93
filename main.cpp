@@ -1,11 +1,16 @@
 #include <iostream>
-#include "src/FungeSpace.h"
-#include "src/FungeStack.h"
+#include <fstream>
+#include "src/FungeInterpreter.h"
 
 int main() {
-    FungeSpace a;
-    FungeStack b;
+    FungeInterpreter interpreter;
 
-    std::cout << "Hello, World!" << std::endl;
+    std::ifstream file("/Users/dustin/CLionProjects/Funge93/ExamplePrograms/primes.bf");
+    interpreter.LoadProgram(file);
+    file.close();
+
+    while (interpreter.IsExecuting()) {
+        interpreter.Tick();
+    }
     return 0;
 }

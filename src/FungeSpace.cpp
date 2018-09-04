@@ -31,3 +31,7 @@ void FungeSpace::LoadProgram(std::istream &program) {
         row++;
     }
 }
+
+FungeSpace::space_cell_t &FungeSpace::operator()(FungeCoordinate coordinate) {
+    return space[coordinate.y()][coordinate.x()];
+}
