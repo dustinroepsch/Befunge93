@@ -20,11 +20,6 @@ FungeInterpreter::befunge_instruction_t FungeInterpreter::NextInstruction() {
 }
 
 void FungeInterpreter::Execute(FungeInterpreter::befunge_instruction_t instruction) {
-    if (std::isdigit(instruction)) {
-        stack.Push(instruction - '0');
-        return;
-    }
-
     if (instruction == '"') {
         stringMode = !stringMode;
         return;
@@ -32,6 +27,11 @@ void FungeInterpreter::Execute(FungeInterpreter::befunge_instruction_t instructi
 
     if (stringMode) {
         stack.Push(instruction);
+        return;
+    }
+
+    if (std::isdigit(instruction)) {
+        stack.Push(instruction - '0');
         return;
     }
 
@@ -52,7 +52,7 @@ void FungeInterpreter::Execute(FungeInterpreter::befunge_instruction_t instructi
         case '%': {
             FungeStack::stack_cell_t b = stack.Pop();
             FungeStack::stack_cell_t a = stack.Pop();
-            stack.Push(a % b);
+            stack.Push(b == 0 ? 0 : a % b);
             break;
         }
         case '&': {
@@ -94,7 +94,7 @@ void FungeInterpreter::Execute(FungeInterpreter::befunge_instruction_t instructi
         case '/': {
             FungeStack::stack_cell_t b = stack.Pop();
             FungeStack::stack_cell_t a = stack.Pop();
-            stack.Push(a / b);
+            stack.Push(b == 0 ? 0 : a / b);
             break;
         }
         case ':': {

@@ -5,7 +5,7 @@
 int main() {
     FungeInterpreter interpreter;
 
-    std::ifstream file("/Users/dustin/CLionProjects/Funge93/ExamplePrograms/primes.bf");
+    std::ifstream file("/Users/dustin/CLionProjects/Funge93/ExamplePrograms/pi.bf");
     interpreter.LoadProgram(file);
     file.close();
 
