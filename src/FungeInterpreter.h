@@ -16,7 +16,7 @@ class FungeInterpreter {
 public:
     typedef char befunge_instruction_t;
 
-    FungeInterpreter() : pc(0, 0), direction(RIGHT), isExecuting(true) {}
+    FungeInterpreter() : pc(0, 0), direction(RIGHT), isExecuting(true), stringMode(false) {}
 
     void LoadProgram(std::istream &program);
 
@@ -42,6 +42,10 @@ private:
     void Execute(befunge_instruction_t instruction);
 
     bool isExecuting;
+
+    void Move();
+
+    bool stringMode;
 };
 
 
