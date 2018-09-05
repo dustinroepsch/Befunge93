@@ -12,7 +12,7 @@ On Mac, that would be done with
 `brew install cmake && brew install boost`
 ### Compilation ###
 To compile, first create the Makefile with
-`cmake CMakeLists.txt`
+`cmake -DCMAKE_BUILD_TYPE=Release CMakeLists.txt`
 Then build with
 `make`
 
