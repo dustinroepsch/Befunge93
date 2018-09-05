@@ -8,6 +8,7 @@
 
 #include <cstdint>
 #include <istream>
+#include <array>
 #include "FungeCoordinate.h"
 
 class FungeSpace {
@@ -23,7 +24,7 @@ public:
     space_cell_t &operator()(FungeCoordinate coordinate);
 
 private:
-    space_cell_t space[SPACE_HEIGHT][SPACE_WIDTH];
+    std::array<std::array<space_cell_t, SPACE_WIDTH>, SPACE_HEIGHT> space;
 };
 
 
